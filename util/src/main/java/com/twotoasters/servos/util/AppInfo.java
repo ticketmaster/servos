@@ -1,9 +1,11 @@
 package com.twotoasters.servos.util;
 
-import android.content.Context;
+import android.app.Application;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+
+import com.twotoasters.servos.Servos;
 
 public final class AppInfo {
 
@@ -14,36 +16,34 @@ public final class AppInfo {
     /**
      * Retrieves the app version name or null if the package was not found.
      *
-     * @param context an activity or application context
      * @return the version name for the application or null
      */
-    public static String getVersionName(Context context) {
-        PackageInfo packageInfo = getPackageInfo(context);
+    public static String getVersionName() {
+        PackageInfo packageInfo = getPackageInfo();
         return packageInfo != null ? packageInfo.versionName : null;
     }
 
     /**
      * Retrieves the app version code or VERSION_CODE_NOT_FOUND if the package was not found.
      *
-     * @param context an activity or application context
      * @return the version code for the application or VERSION_CODE_NOT_FOUND
      */
-    public static int getVersionCode(Context context) {
-        PackageInfo packageInfo = getPackageInfo(context);
+    public static int getVersionCode() {
+        PackageInfo packageInfo = getPackageInfo();
         return packageInfo != null ? packageInfo.versionCode : VERSION_CODE_NOT_FOUND;
     }
 
     /**
      * Retrieves the app version info or null if the package was not found.
      *
-     * @param context an activity or application context
      * @return an object containing package version info or null
      */
-    public static PackageInfo getPackageInfo(Context context) {
-        if (context != null) {
-            PackageManager pm = context.getPackageManager();
+    public static PackageInfo getPackageInfo() {
+        Application application = Servos.getApplication();
+        if (application != null) {
+            PackageManager pm = application.getPackageManager();
             if (pm != null) {
-                String packageName = context.getPackageName();
+                String packageName = application.getPackageName();
                 if (packageName != null) {
                     try {
                         return pm.getPackageInfo(packageName, 0);
