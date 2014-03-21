@@ -15,7 +15,7 @@ public final class AppInfo {
      * Retrieves the app version name or null if the package was not found.
      *
      * @param context an activity or application context
-     * @return the version code for the application or VERSION_CODE_NOT_FOUND
+     * @return the version name for the application or null
      */
     public static String getVersionName(Context context) {
         PackageInfo packageInfo = getPackageInfo(context);
@@ -34,10 +34,10 @@ public final class AppInfo {
     }
 
     /**
-     * Retrieves the app version info.
+     * Retrieves the app version info or null if the package was not found.
      *
      * @param context an activity or application context
-     * @return an object containing package version info
+     * @return an object containing package version info or null
      */
     public static PackageInfo getPackageInfo(Context context) {
         if (context != null) {

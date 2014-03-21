@@ -7,11 +7,11 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Build.VERSION_CODES;
 
-public final class ClipboardHelper {
+public final class ClipboardUtils {
 
     private static final boolean IS_AT_LEAST_HC = Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB;
 
-    private ClipboardHelper() { }
+    private ClipboardUtils() { }
 
     /**
      * This will copy text to the device's clipboard.
