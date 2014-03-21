@@ -24,10 +24,6 @@ public final class ClipboardUtils {
     @TargetApi(VERSION_CODES.HONEYCOMB)
     public static void copyText(String text, String description) {
         Application application = Servos.getApplication();
-        if (application == null) {
-            return;
-        }
-
         if (IS_AT_LEAST_HC) {
             ClipData clip = ClipData.newPlainText(description, text);
             ClipboardManager clipboard = (ClipboardManager) application.getSystemService(Context.CLIPBOARD_SERVICE);
