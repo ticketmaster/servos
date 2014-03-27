@@ -9,18 +9,19 @@ public class Servos {
     private Servos() { /* no-op */ }
 
     /**
-     * Call this method to initialize the Servos library
+     * OPTIONAL: Set the reference to your Application object. This is only necessary if you
+     * wish to call the no-Context argument convenience overloads in your app.
      *
      * Example:
      * public class MyApplication extends Application {
      *     public void onCreate() {
-     *         Servos.init(this);
+     *         Servos.setApplication(this);
      *     }
      * }
      * @param application the Application which Servos will use to obtain a reference to an
      *                    Application Context
      */
-    public static void init(Application application) {
+    public static void setApplication(Application application) {
         Servos.application = application;
     }
 
@@ -36,7 +37,7 @@ public class Servos {
      */
     public static Application getApplication() {
         if (application == null) {
-            throw new IllegalStateException("Programmer error: must first call Servos.init(this) from your Application.onCreate()");
+            throw new IllegalStateException("Programmer error: must first call Servos.setApplication(this) from your Application.onCreate()");
         }
         return application;
     }
