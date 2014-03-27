@@ -5,8 +5,10 @@ import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 import static org.fest.assertions.api.Assertions.assertThat;
+import static org.junit.Assert.fail;
 
 @RunWith(RobolectricTestRunner.class)
 public class PredicatesTest {
@@ -52,18 +54,33 @@ public class PredicatesTest {
         assertThat(Predicates.filter(numbers, isPositive)).contains(1, 2, 3, 4, 5, 6, 7, 8, 9);
         assertThat(Predicates.filter(numbers, isNegative)).isEmpty();
         assertThat(Predicates.filter(numbers, lessThanFive)).contains(1, 2, 3, 4);
-        assertThat(Predicates.filter(numbers, lessThanFive)).doesNotContain(5, 6, 7, 8, 9);
-        assertThat(Predicates.filter(numbers, greaterThanFive)).contains(6, 7, 8, 9);
         assertThat(Predicates.filter(numbers, greaterThanFive)).doesNotContain(1, 2, 3, 4, 5);
     }
 
     @Test
-    public void find() {
+    public void defaultValueFind() {
         assertThat(Predicates.find(numbers, isZero, -1)).isEqualTo(-1);
+        assertThat(Predicates.find(numbers, nothing, 100)).isEqualTo(100);
+    }
+
+    @Test
+    public void expectedFind() {
         assertThat(Predicates.find(numbers, isEven)).isEqualTo(2);
         assertThat(Predicates.find(numbers, isOdd)).isEqualTo(1);
         assertThat(Predicates.find(numbers, isPositive)).isEqualTo(1);
         assertThat(Predicates.find(numbers, greaterThanFive)).isEqualTo(6);
+    }
+
+    @Test
+    public void throwsWhenExpectedFindFails() {
+        try {
+            Predicates.find(numbers, nothing);
+            fail("Expected find to throw");
+        } catch (Exception e) {
+            if (!(e instanceof NoSuchElementException)) {
+                fail("Didn't expect find  to throw " + e.toString());
+            }
+        }
     }
 
     Predicates.IPredicate<Integer> isEven = new Predicates.IPredicate<Integer>() {
@@ -112,6 +129,20 @@ public class PredicatesTest {
         @Override
         public boolean apply(Integer i) {
             return i > 5;
+        }
+    };
+
+    Predicates.IPredicate<Integer> nothing = new Predicates.IPredicate<Integer>() {
+        @Override
+        public boolean apply(Integer i) {
+            return false;
+        }
+    };
+
+    Predicates.IPredicate<Integer> everything = new Predicates.IPredicate<Integer>() {
+        @Override
+        public boolean apply(Integer i) {
+            return true;
         }
     };
 
