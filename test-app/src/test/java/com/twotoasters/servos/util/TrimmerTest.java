@@ -9,12 +9,8 @@ import org.robolectric.Robolectric;
 
 import static org.junit.Assert.assertEquals;
 
-/**
- * Created by curtismartin on 4/3/14.
- */
-
 @RunWith(ServosRobolectricTestRunner.class)
-public class TextViewUtilsTest {
+public class TrimmerTest {
 
     TextView textView;
 
@@ -28,7 +24,7 @@ public class TextViewUtilsTest {
         String withSpaces = " test ";
         String trimmed = "test";
         textView.setText(withSpaces);
-        assertEquals(TextViewUtils.getText(textView), trimmed);
+        assertEquals(Trimmer.on(textView).trim(), trimmed);
     }
 
 }
