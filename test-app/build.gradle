@@ -50,6 +50,7 @@ apply plugin: 'android-unit-test'
 
 dependencies {
     compile project(':util')
+    compile project(':util-otto')
 
     testCompile 'com.squareup.assertj:assertj-android:1.0.+'
     testCompile 'junit:junit:4.10'
