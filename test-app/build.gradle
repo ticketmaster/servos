@@ -29,10 +29,10 @@ android {
         minSdkVersion Integer.parseInt(ANDROID_BUILD_MIN_SDK_VERSION)
         targetSdkVersion Integer.parseInt(ANDROID_BUILD_TARGET_SDK_VERSION)
 
-        versionCode 1
-        versionName "0.0.1"
+        versionName VERSION_NAME
+        versionCode Integer.parseInt(VERSION_CODE)
 
-        applicationId "com.twotoasters.servos"
+        applicationId GROUP
     }
 
     compileOptions {
