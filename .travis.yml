@@ -1,43 +1,18 @@
-language: java
+language: android
 jdk: oraclejdk7
 
-before_install:
+android:
+  components:
+    - platform-tools
+    - build-tools-20
+    - build-tools-19.1.0
+    - android-16
+    - android-19
+    - extra-android-support
+    - extra-android-m2repository
+  licenses:
+    - android-sdk-license-.*
 
-  # Install base Android SDK
-  - sudo apt-get update -qq
-  - if [ `uname -m` = x86_64 ]; then sudo apt-get install -qq --force-yes libgd2-xpm ia32-libs ia32-libs-multiarch > /dev/null; fi
-  - wget http://dl.google.com/android/android-sdk_r22.3-linux.tgz
-  - tar xzf android-sdk_r22.3-linux.tgz
-  - export ANDROID_HOME=$PWD/android-sdk-linux
-  - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
+install: true # Override install task to prevent duplicate assembleDebug task invocation
 
-  # Install android build tools
-  - mkdir -p $ANDROID_HOME/build-tools/
-
-  - wget https://dl-ssl.google.com/android/repository/build-tools_r19-linux.zip
-  - unzip build-tools_r19-linux.zip -d $ANDROID_HOME
-  - mv $ANDROID_HOME/android-4.4 $ANDROID_HOME/build-tools/19
-
-  # Install required components.
-  # For a full list, run `android list sdk -a --extended`
-  # Note that sysimg-18 downloads the ARM, x86 and MIPS images (we should optimize this).
-  # Other relevant API's
-  - echo yes | android update sdk --all --filter platform-tools --no-ui --force > /dev/null
-  - echo yes | android update sdk --all --filter build-tools-19.0.0 --no-ui --force > /dev/null
-  - echo yes | android update sdk --all --filter build-tools-19.0.1 --no-ui --force > /dev/null
-  - echo yes | android update sdk --all --filter build-tools-19.0.3 --no-ui --force > /dev/null
-  - echo yes | android update sdk --all --filter android-10 --no-ui --force > /dev/null
-  - echo yes | android update sdk --all --filter android-19 --no-ui --force > /dev/null
-  - echo yes | android update sdk --all --filter sysimg-19 --no-ui --force > /dev/null
-  - echo yes | android update sdk --all --filter extra-android-support --no-ui --force > /dev/null
-  - echo yes | android update sdk --all --filter extra-android-m2repository --no-ui --force > /dev/null
-  - echo yes | android update sdk --all --filter extra-google-m2repository --no-ui --force > /dev/null
-
-install:
-
-  # Override install task to prevent duplicate assembleDebug task invocation
-  - true
-
-script:
-
-  - ./gradlew testDebug --info
+script: ./gradlew testDebug -Dpre-dex=false --info

@@ -3,28 +3,41 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.github.jcandksolutions.gradle:android-unit-test:1.0.+'
+        classpath 'com.github.jcandksolutions.gradle:android-unit-test:1.2.+'
     }
 }
 
-apply plugin: 'android'
+apply plugin: 'com.android.application'
 
 repositories {
     maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
 }
 
+def isTravis = "true".equals(System.getenv("TRAVIS"))
+def preDexEnabled = "true".equals(System.getProperty("pre-dex", "true"))
+
 android {
     compileSdkVersion Integer.parseInt(project.ANDROID_BUILD_SDK_VERSION)
     buildToolsVersion project.ANDROID_BUILD_TOOLS_VERSION
 
+    dexOptions {
+        // Skip pre-dexing when running on Travis CI or when disabled via -Dpre-dex=false.
+        preDexLibraries = preDexEnabled && !isTravis
+    }
+
     defaultConfig {
-        minSdkVersion 10
-        targetSdkVersion 19
+        minSdkVersion Integer.parseInt(ANDROID_BUILD_MIN_SDK_VERSION)
+        targetSdkVersion Integer.parseInt(ANDROID_BUILD_TARGET_SDK_VERSION)
 
         versionCode 1
-        versionName "1.0.0"
+        versionName "0.0.1"
 
-        packageName "com.twotoasters.servos.util"
+        applicationId "com.twotoasters.servos"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
     }
 
     // Since we are not supporting instrument tests, use the sourceset for our unit tests
@@ -37,15 +50,16 @@ apply plugin: 'android-unit-test'
 
 dependencies {
     compile project(':util')
+    compile project(':util-otto')
 
-    testCompile 'com.squareup:fest-android:1.0.+'
+    testCompile 'com.squareup.assertj:assertj-android:1.0.+'
     testCompile 'junit:junit:4.10'
     testCompile 'org.mockito:mockito-all:1.9.5'
-    testCompile 'org.robolectric:robolectric:2.3-SNAPSHOT'
+    testCompile 'org.robolectric:robolectric:2.4-SNAPSHOT'
 
     // These should mirror the testCompile dependencies above
-    androidTestCompile 'com.squareup:fest-android:1.0.+'
+    androidTestCompile 'com.squareup.assertj:assertj-android:1.0.+'
     androidTestCompile 'junit:junit:4.10'
     androidTestCompile 'org.mockito:mockito-all:1.9.5'
-    androidTestCompile 'org.robolectric:robolectric:2.3-SNAPSHOT'
+    androidTestCompile 'org.robolectric:robolectric:2.4-SNAPSHOT'
 }

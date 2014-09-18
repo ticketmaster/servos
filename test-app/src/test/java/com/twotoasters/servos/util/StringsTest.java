@@ -1,9 +1,11 @@
 package com.twotoasters.servos.util;
 
+import com.twotoasters.servos.ServosRobolectricTestRunner;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static org.fest.assertions.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(ServosRobolectricTestRunner.class)
 public class StringsTest {

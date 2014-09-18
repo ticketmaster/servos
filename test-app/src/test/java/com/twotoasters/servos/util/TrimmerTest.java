@@ -2,6 +2,9 @@ package com.twotoasters.servos.util;
 
 import android.widget.TextView;
 
+import com.twotoasters.servos.ServosRobolectricTestRunner;
+import com.twotoasters.servos.tests.MainActivity;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,5 +29,4 @@ public class TrimmerTest {
         textView.setText(withSpaces);
         assertEquals(Trimmer.on(textView).trim(), trimmed);
     }
-
 }
