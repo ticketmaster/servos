@@ -1,4 +1,4 @@
-package com.twotoasters.servos.util;
+package com.twotoasters.servos;
 
 import org.junit.runners.model.InitializationError;
 import org.robolectric.RobolectricTestRunner;
