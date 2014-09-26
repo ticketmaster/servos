@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.Locale;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.fail;
 
 @RunWith(RobolectricTestRunner.class)
 public class CalendarUtilsTest {
@@ -41,9 +42,30 @@ public class CalendarUtilsTest {
     @Test
     public void itShouldKnowToday() {
         assertThat(CalendarUtils.isToday(new Date())).isTrue();
-
         Calendar tomorrow = Calendar.getInstance(Locale.US);
         tomorrow.add(Calendar.DAY_OF_YEAR, 1);
         assertThat(CalendarUtils.isToday(tomorrow.getTime())).isFalse();
+    }
+
+    @Test
+    public void itShouldThrowOnNullArgs() {
+        Date date = null;
+        Calendar calendar = null;
+
+        try {
+            CalendarUtils.isToday(date);
+            fail("Failed to throw");
+        } catch (RuntimeException e) { }
+
+        try {
+            CalendarUtils.isSameDay(date, date);
+            fail("Failed to throw");
+        } catch (RuntimeException e) { }
+
+        try {
+            CalendarUtils.isSameDay(calendar, calendar);
+            fail("Failed to throw");
+        } catch (RuntimeException e) { }
+
     }
 }

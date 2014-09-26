@@ -1,5 +1,7 @@
 package com.twotoasters.servos.util;
 
+import android.support.annotation.NonNull;
+
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -42,13 +44,23 @@ public final class CalendarUtils {
      * Is it today?
      *
      * @param date
+     * @throws java.lang.RuntimeException if date is null
      * @return true if given date is today
      */
-    public static boolean isToday(Date date) {
+    public static boolean isToday(@NonNull Date date) {
         return isSameDay(date, new Date());
     }
 
-    public static boolean isSameDay(Date date1, Date date2) {
+    /**
+     * Are the given dates on the same day?
+     *
+     * @param date1
+     * @param date2
+     * @throws java.lang.RuntimeException if either arg is null
+     * @return
+     */
+    @NonNull
+    public static boolean isSameDay(@NonNull Date date1, @NonNull Date date2) {
         Preconditions.checkNotNull(date1);
         Preconditions.checkNotNull(date2);
         Calendar calendar1 = Calendar.getInstance();
@@ -58,7 +70,16 @@ public final class CalendarUtils {
         return isSameDay(calendar1, calendar2);
     }
 
-    public static boolean isSameDay(Calendar calendar1, Calendar calendar2) {
+    /**
+     * Are the given calendars on the same day?
+     *
+     * @param calendar1
+     * @param calendar2
+     * @throws java.lang.RuntimeException if either arg is null
+     * @return
+     */
+    @NonNull
+    public static boolean isSameDay(@NonNull Calendar calendar1, @NonNull Calendar calendar2) {
         Preconditions.checkNotNull(calendar1);
         Preconditions.checkNotNull(calendar2);
         return (calendar1.get(Calendar.YEAR) == calendar2.get(Calendar.YEAR))
