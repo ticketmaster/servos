@@ -20,7 +20,8 @@ public class NotifyingRetrofitClient implements Client {
 
     private Client wrappedClient;
 
-    public NotifyingRetrofitClient(Client wrappedClient) {
+    public NotifyingRetrofitClient(Client wrappedClient) throws IllegalArgumentException {
+        if (wrappedClient == null) throw new IllegalArgumentException();
         this.wrappedClient = wrappedClient;
     }
 
@@ -35,7 +36,6 @@ public class NotifyingRetrofitClient implements Client {
     /**
      * Otto Bus event classes
      */
-
     private static class RequestNotificationEventBase {
 
         private String endpoint;
