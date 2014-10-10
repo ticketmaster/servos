@@ -21,7 +21,7 @@ public class NotifyingRetrofitClient implements Client {
     private Client wrappedClient;
 
     public NotifyingRetrofitClient(Client wrappedClient) throws IllegalArgumentException {
-        if (wrappedClient == null) throw new IllegalArgumentException();
+        if (wrappedClient == null) throw new IllegalArgumentException("You must provide a Retrofit Client");
         this.wrappedClient = wrappedClient;
     }
 
