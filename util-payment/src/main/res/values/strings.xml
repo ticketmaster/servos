@@ -1,0 +1,6 @@
+<resources>
+    <string name="visa_abrev">VISA</string>
+    <string name="mastercard_abrev">MASTERCARD</string>
+    <string name="american_express_abrev">AMEX</string>
+    <string name="discover_abrev">DISC</string>
+</resources>

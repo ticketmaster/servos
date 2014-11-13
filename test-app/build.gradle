@@ -51,15 +51,16 @@ apply plugin: 'android-unit-test'
 dependencies {
     compile project(':util')
     compile project(':util-otto')
+    compile project(':util-payment')
 
     testCompile 'com.squareup.assertj:assertj-android:1.0.+'
     testCompile 'junit:junit:4.10'
     testCompile 'org.mockito:mockito-all:1.9.5'
-    testCompile 'org.robolectric:robolectric:2.4-SNAPSHOT'
+    testCompile 'org.robolectric:robolectric:2.4'
 
     // These should mirror the testCompile dependencies above
     androidTestCompile 'com.squareup.assertj:assertj-android:1.0.+'
     androidTestCompile 'junit:junit:4.10'
     androidTestCompile 'org.mockito:mockito-all:1.9.5'
-    androidTestCompile 'org.robolectric:robolectric:2.4-SNAPSHOT'
+    androidTestCompile 'org.robolectric:robolectric:2.4'
 }
