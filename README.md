@@ -13,3 +13,7 @@ A repo for small utilities that we often use in Android Development. They are co
 #### util-otto
 
 - Classes such as BusProvider and MainPostingBus that are dependent upon Otto
+
+
+#### util-payment
+- Credit card type detection and Luhn Test validation
