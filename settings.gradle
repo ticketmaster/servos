@@ -1,1 +1,1 @@
-include ':util', ':util-otto', ':test-app', ':util-otto-retrofit'
+include ':util', ':util-otto', ':util-picasso', ':util-otto-retrofit', ':test-app'
