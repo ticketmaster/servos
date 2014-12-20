@@ -5,6 +5,11 @@ import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.ViewGroup;
 
+/**
+ * Allows you to easily create an object animator that will change the height of a view.
+ *
+ * Example: ObjectAnimator.ofObject(new HeightEvaluator(view), currentHeight, newHeight);
+ */
 public class HeightEvaluator extends IntEvaluator {
 
     private View view;

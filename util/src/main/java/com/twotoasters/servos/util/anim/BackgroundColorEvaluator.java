@@ -4,6 +4,11 @@ import android.animation.ArgbEvaluator;
 import android.support.annotation.NonNull;
 import android.view.View;
 
+/**
+ * Allows you to easily create an object animator that will change the background color of a view.
+ *
+ * Example: ValueAnimator.ofObject(new BackgroundColorEvaluator(view), currentColor, newColor);
+ */
 public class BackgroundColorEvaluator extends ArgbEvaluator {
 
     private View view;
