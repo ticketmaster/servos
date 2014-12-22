@@ -10,14 +10,18 @@ A repo for small utilities that we often use in Android Development. They are co
 
 - A collection of small static utility classes
 
+#### util-butterknife
+
+- A collection of small utilities such as VisibilitySetter that are dependent upon ButterKnife 
+
 #### util-otto
 
 - Classes such as BusProvider and MainPostingBus that are dependent upon Otto
 
-#### util-picasso
-
-- Classes such as bitmap transforms that are dependent upon Picasso
-
 #### util-otto-retrofit
 
 - Classes like one that helps management of the view's API request state that are dependent upon both Otto and Retrofit
+
+#### util-picasso
+
+- Classes such as bitmap transforms that are dependent upon Picasso
