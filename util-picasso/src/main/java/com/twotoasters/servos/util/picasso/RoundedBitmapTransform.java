@@ -23,8 +23,12 @@ public class RoundedBitmapTransform implements Transformation {
     }
 
     public RoundedBitmapTransform(Resources res, @DimenRes int cornerRadiusResId) {
+        this(res, res.getDimension(cornerRadiusResId));
+    }
+
+    public RoundedBitmapTransform(Resources res, float cornerRadius) {
         this.res = res;
-        cornerRadius = (int) res.getDimension(cornerRadiusResId);
+        this.cornerRadius = cornerRadius;
     }
 
     @Override
