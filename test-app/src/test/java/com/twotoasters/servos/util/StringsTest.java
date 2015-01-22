@@ -35,4 +35,10 @@ public class StringsTest {
 
         assertThat(Strings.valueOrEmpty(null)).isEqualTo("");
     }
+
+    @Test
+    public void testDefaultStrings() {
+        assertThat(Strings.valueOrDefault("anything", "something else")).isEqualTo("anything");
+        assertThat(Strings.valueOrDefault(null, "something")).isEqualTo("something");
+    }
 }
