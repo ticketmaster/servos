@@ -14,4 +14,14 @@ public final class Strings {
         return text == null || text.length() == 0;
     }
 
+    /**
+     * Return the given string if it is not null, otherwise return an empty string.
+     *
+     * @param value The string that should be checked
+     * @return "" if value is null, else the given string
+     */
+    public static String valueOrEmpty(String value) {
+        return (value == null) ? "" : value;
+    }
+
 }

@@ -26,4 +26,13 @@ public class StringsTest {
             assertThat(Strings.isEmpty(string)).isFalse();
         }
     }
+
+    @Test
+    public void testValueStrings() {
+        for (String string : NON_EMPTY_STRINGS) {
+            assertThat(Strings.valueOrEmpty(string)).isEqualTo(string);
+        }
+
+        assertThat(Strings.valueOrEmpty(null)).isEqualTo("");
+    }
 }
