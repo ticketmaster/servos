@@ -12,7 +12,7 @@ public final class DensityUtils {
      * @param pixels The pixel-based measurement
      * @return The measurement's value in dp, based on the device's screen density
      */
-    public static float getDpFromPixels(int pixels) {
+    public static float pxToDp(float pixels) {
         return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, pixels, Resources.getSystem().getDisplayMetrics());
     }
 
@@ -21,8 +21,7 @@ public final class DensityUtils {
      * @param dp The measurement, in dp
      * @return The corresponding amount of pixels based on the device's screen density
      */
-    public static float getPixelsFromDp(int dp) {
+    public static float dpToPx(float dp) {
         return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, Resources.getSystem().getDisplayMetrics());
     }
-
 }

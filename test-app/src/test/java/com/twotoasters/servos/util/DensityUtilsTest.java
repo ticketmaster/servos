@@ -17,13 +17,13 @@ public class DensityUtilsTest {
     @Test
     public void itShouldCorrectlyCalculateDpFromPixels() {
         int dpi = Resources.getSystem().getDisplayMetrics().densityDpi;
-        assertThat(DensityUtils.getDpFromPixels(1)).isEqualTo(1 / (dpi / DP_CONSTANT));
+        assertThat(DensityUtils.pxToDp(1)).isEqualTo(1 / (dpi / DP_CONSTANT));
     }
 
     @Test
     public void itShouldCorrectlyCalculatePixelsFromDp() {
         int dpi = Resources.getSystem().getDisplayMetrics().densityDpi;
-        assertThat(DensityUtils.getPixelsFromDp(1)).isEqualTo(dpi / DP_CONSTANT);
+        assertThat(DensityUtils.dpToPx(1)).isEqualTo(dpi / DP_CONSTANT);
     }
 
 }
