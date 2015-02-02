@@ -1,7 +1,7 @@
 package com.twotoasters.servos.util;
 
 import android.content.res.Resources;
-import android.util.TypedValue;
+import android.util.DisplayMetrics;
 
 public final class DensityUtils {
 
@@ -13,7 +13,8 @@ public final class DensityUtils {
      * @return The measurement's value in dp, based on the device's screen density
      */
     public static float pxToDp(float pixels) {
-        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, pixels, Resources.getSystem().getDisplayMetrics());
+        DisplayMetrics metrics = Resources.getSystem().getDisplayMetrics();
+        return pixels / (metrics.densityDpi / 160f);
     }
 
     /**
@@ -22,6 +23,7 @@ public final class DensityUtils {
      * @return The corresponding amount of pixels based on the device's screen density
      */
     public static float dpToPx(float dp) {
-        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, Resources.getSystem().getDisplayMetrics());
+        DisplayMetrics metrics = Resources.getSystem().getDisplayMetrics();
+        return dp * (metrics.densityDpi / 160f);
     }
 }

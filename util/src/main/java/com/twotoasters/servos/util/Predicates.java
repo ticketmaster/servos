@@ -56,7 +56,7 @@ public final class Predicates {
     }
 
     /**
-     * Return the fist element satisfying the predicate, or the defaultValue if none found.
+     * Return the first element satisfying the predicate, or the defaultValue if none found.
      * @param target source collection with elements of type T
      * @param predicate answers true/false given a collection element
      * @param defaultValue returned if no collection element found
