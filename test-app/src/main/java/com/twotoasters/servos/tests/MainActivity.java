@@ -17,9 +17,11 @@ public class MainActivity extends Activity {
 
     ViewGroup buildLayout() {
         TextView textView = new TextView(this);
+        textView.setId(R.id.main_textview);
         textView.setText("Hello World!");
 
         LinearLayout layout = new LinearLayout(this);
+        layout.setId(R.id.main_container);
         layout.setOrientation(LinearLayout.VERTICAL);
         layout.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
         layout.addView(textView);
