@@ -38,6 +38,8 @@ public class TouchAreaTest {
         LayoutUtils.adjustTouchableArea(view, parent, new TouchAreaSizer() {
             @Override
             public Rect adjustTouchableArea(Rect r) {
+                // This little sizer demonstrates that you can reduce,
+                // as well as expand the touch area of a view.
                 Rect adjusted = new Rect();
                 adjusted.top += 20;
                 adjusted.left += 20;

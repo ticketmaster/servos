@@ -21,16 +21,31 @@ public class LayoutUtils {
      * the other way too; to reduce the tappable area of a large view.
      *
      * @param view delegate view
-     * @param parent the delegate's parent container
+     * @param sizer how to size the new touchable area
+     *
+     * @throws java.lang.ClassCastException if the view's parent cannot be cast to View
+     */
+    public static void adjustTouchableArea(final View view, final TouchAreaSizer sizer) {
+        adjustTouchableArea(view, (View) view.getParent(), sizer);
+    }
+
+    /**
+     * Adjust the touchable area of the delegate view.
+     * This is typically done for tiny views in order to make them
+     * tappable without making the user crazy. But, it can be used
+     * the other way too; to reduce the tappable area of a large view.
+     *
+     * @param view delegate view
+     * @param container the delegate's parent container
      * @param sizer how to size the new touchable area
      */
-    public static void adjustTouchableArea(final View view, final View parent, final TouchAreaSizer sizer) {
-        parent.post(new Runnable() {
+    public static void adjustTouchableArea(final View view, final View container, final TouchAreaSizer sizer) {
+        container.post(new Runnable() {
             @Override
             public void run() {
                 Rect r = new Rect();
                 view.getHitRect(r);
-                parent.setTouchDelegate(new TouchDelegate(sizer.adjustTouchableArea(r), view));
+                container.setTouchDelegate(new TouchDelegate(sizer.adjustTouchableArea(r), view));
             }
         });
     }
