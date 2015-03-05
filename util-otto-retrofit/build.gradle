@@ -14,3 +14,7 @@ dependencies {
     compile project(':util-otto')
     compile 'com.squareup.retrofit:retrofit:1.8.0'
 }
+
+if (Boolean.parseBoolean(BINTRAY_RELEASE_ENABLED)) {
+    apply from: '../gradle-scripts/bintray-upload.gradle'
+}

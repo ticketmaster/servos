@@ -27,6 +27,10 @@ A repo for small utilities that we often use in Android development. They are co
 
 - Classes such as bitmap transforms that are dependent upon Picasso
 
+#### gradle-scripts
+
+- Gradle scripts that can be directly applied in your build.gradle for checkstyle, signing, and uploading to Bintray
+
 Download
 --------
 

@@ -15,4 +15,6 @@ dependencies {
     compile 'com.squareup:otto:1.3.+'
 }
 
-apply from: 'https://raw.github.com/twotoasters/gradle-mvn-push/master/gradle-mvn-push.gradle'
+if (Boolean.parseBoolean(BINTRAY_RELEASE_ENABLED)) {
+    apply from: '../gradle-scripts/bintray-upload.gradle'
+}
