@@ -11,8 +11,8 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:21.0.+'
-    compile 'com.squareup.picasso:picasso:2.4.+'
+    compile 'com.android.support:support-v4:21.0.3'
+    compile 'com.squareup.picasso:picasso:2.4.0'
 }
 
 if (Boolean.parseBoolean(BINTRAY_RELEASE_ENABLED)) {
