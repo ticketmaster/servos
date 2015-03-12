@@ -1,7 +1,7 @@
 Servos
 ------
 
-[![Build Status](https://magnum.travis-ci.com/twotoasters/servos.svg?token=w2dnq6rpzQyKVx2ZAHkY&branch=master)](https://magnum.travis-ci.com/twotoasters/servos)
+[![Build Status](https://magnum.travis-ci.org/twotoasters/servos.svg?token=w2dnq6rpzQyKVx2ZAHkY&branch=master)](https://magnum.travis-ci.org/twotoasters/servos)
 
 A repo for small utilities that we often use in Android development. They are conveniently broken up into small modules for à la carte use.
 
@@ -35,11 +35,11 @@ Download
 --------
 
 ```groovy
-compile 'com.twotoasters.servos:util:0.1.0'
-compile 'com.twotoasters.servos:util-butterknife:0.1.0'
-compile 'com.twotoasters.servos:util-otto:0.1.0'
-compile 'com.twotoasters.servos:util-otto-retrofit:0.1.0'
-compile 'com.twotoasters.servos:util-picasso:0.1.0'
+compile 'com.twotoasters.servos:util:1.0.0'
+compile 'com.twotoasters.servos:util-butterknife:1.0.0'
+compile 'com.twotoasters.servos:util-otto:1.0.0'
+compile 'com.twotoasters.servos:util-otto-retrofit:1.0.0'
+compile 'com.twotoasters.servos:util-picasso:1.0.0'
 ```
 
 License
