@@ -30,4 +30,21 @@ public class ArrayUtilsTest {
         long[] e = ArrayUtils.toPrimitives(Arrays.asList(2L, 7L, 1L, 8L, 2L, 8L, 1L, 8L, 2L, 8L));
         assertThat(e).containsExactly(2, 7, 1, 8, 2, 8, 1, 8, 2, 8);
     }
+
+    @Test
+    public void itShouldCombineArrays() throws Exception {
+        String[] array1 = new String[] { "one", "two", "three" };
+        String[] array2 = new String[] { "four" };
+        String[] array3 = new String[] { };
+        String[] array4 = new String[] { "five", "six" };
+
+        String[] combinedArray = ArrayUtils.combineArrays(String.class, array1, array2, array3, null, array4);
+
+        assertThat(combinedArray[0]).isEqualTo("one");
+        assertThat(combinedArray[1]).isEqualTo("two");
+        assertThat(combinedArray[2]).isEqualTo("three");
+        assertThat(combinedArray[3]).isEqualTo("four");
+        assertThat(combinedArray[4]).isEqualTo("five");
+        assertThat(combinedArray[5]).isEqualTo("six");
+    }
 }
