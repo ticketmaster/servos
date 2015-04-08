@@ -46,6 +46,6 @@ public class AppInfoTest {
 
     @Test
     public void itShouldGetVersionCode() {
-        assertThat(AppInfo.getVersionCode(context)).isEqualTo(1);
+        assertThat(AppInfo.getVersionCode(context)).isEqualTo(2);
     }
 }

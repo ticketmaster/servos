@@ -15,6 +15,7 @@
  */
 package com.twotoasters.servos.util;
 
+import java.lang.reflect.Array;
 import java.util.List;
 
 public final class ArrayUtils {
@@ -29,5 +30,25 @@ public final class ArrayUtils {
 
     public static long[] toPrimitives(List<Long> objects) {
         return toPrimitives(objects.toArray(new Long[objects.size()]));
+    }
+
+    public static <T> T[] combineArrays(Class<T> clazz, T[]... arrays) {
+        int length = 0;
+
+        for (T[] array : arrays) {
+            if (array == null) continue;
+            length += array.length;
+        }
+
+        T[] finalArray = (T[]) Array.newInstance(clazz, length);
+
+        int i = 0;
+        for (T[] array : arrays) {
+            if (array == null) continue;
+            System.arraycopy(array, 0, finalArray, i, array.length);
+            i += array.length;
+        }
+
+        return finalArray;
     }
 }
