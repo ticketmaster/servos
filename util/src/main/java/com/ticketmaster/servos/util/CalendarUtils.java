@@ -26,8 +26,8 @@ public final class CalendarUtils {
 
     /**
      * Returns ordinal form of the day of month.
-     * 1 -> 1st
-     * 2 -> 2nd
+     * 1 = 1st
+     * 2 = 2nd
      *
      * @param date
      * @return ordinal day of month

@@ -16,5 +16,5 @@ dependencies {
 }
 
 if (Boolean.parseBoolean(BINTRAY_RELEASE_ENABLED)) {
-    apply from: 'https://raw.githubusercontent.com/ticketmaster/servos/master/gradle-scripts/bintray-upload.gradle'
+    apply from: '../gradle-scripts/bintray-upload.gradle'
 }

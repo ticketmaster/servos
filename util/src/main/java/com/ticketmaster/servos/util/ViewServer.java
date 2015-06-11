@@ -207,7 +207,7 @@ public class ViewServer implements Runnable {
      *
      * @see #stop()
      * @see #isRunning()
-     * @see WindowManagerService#startViewServer(int)
+     * //@see android.server.wm.WindowManagerService#startViewServer(int)
      */
     public boolean start() throws IOException {
         if (mThread != null) {
@@ -229,7 +229,7 @@ public class ViewServer implements Runnable {
      *
      * @see #start()
      * @see #isRunning()
-     * @see WindowManagerService#stopViewServer()
+     * //@see WindowManagerService#stopViewServer()
      */
     public boolean stop() {
         if (mThread != null) {
@@ -278,7 +278,7 @@ public class ViewServer implements Runnable {
      *
      * @see #start()
      * @see #stop()
-     * @see WindowManagerService#isViewServerRunning()
+     * //@see WindowManagerService#isViewServerRunning()
      */
     public boolean isRunning() {
         return mThread != null && mThread.isAlive();
@@ -319,7 +319,7 @@ public class ViewServer implements Runnable {
      * Invoke this method to register a new view hierarchy.
      *
      * @param view A view that belongs to the view hierarchy/window to register
-     * @name name The name of the view hierarchy/window to register
+     * @param name The name of the view hierarchy/window to register
      *
      * @see #removeWindow(android.view.View)
      */
