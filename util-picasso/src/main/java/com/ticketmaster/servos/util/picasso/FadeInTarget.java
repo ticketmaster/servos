@@ -21,19 +21,13 @@ import com.squareup.picasso.Target;
  */
 public class FadeInTarget extends TransitionDrawable implements Target {
 
-    private static final int ALPHA_INDEX_0 = 0;
-    private static final int ALPHA_INDEX_1 = 0xFF;
-
-    private boolean fade;
-
     private final int transitionDuration;
     int currentIndex = 0;
 
     public FadeInTarget() {
         // There are null checks on the drawables.
         super(new Drawable[]{createDrawableFromBitmap(null), createDrawableFromBitmap(null)});
-        transitionDuration = Resources.getSystem()
-                .getInteger(android.R.integer.config_mediumAnimTime);
+        transitionDuration = Resources.getSystem().getInteger(android.R.integer.config_mediumAnimTime);
         // Id's are View.NO_ID by default.
         setId(0, 0);
         setId(1, 1);
@@ -64,11 +58,11 @@ public class FadeInTarget extends TransitionDrawable implements Target {
 
     // Transition methods
 
-    public void startTransitionToBitmap(@Nullable Bitmap bitmap) {
-        startTransitionToDrawable(createDrawableFromBitmap(bitmap));
+    public void startTransitionToBitmap(@Nullable Bitmap bitmap, boolean fade) {
+        startTransitionToDrawable(createDrawableFromBitmap(bitmap), fade);
     }
 
-    public void startTransitionToDrawable(@Nullable Drawable drawable) {
+    public void startTransitionToDrawable(@Nullable Drawable drawable, boolean fade) {
         if (drawable == null) drawable = new EmptyDrawable();
 
         if (fade) {
@@ -155,19 +149,16 @@ public class FadeInTarget extends TransitionDrawable implements Target {
 
     @Override
     public void onBitmapLoaded(Bitmap bitmap, LoadedFrom from) {
-        fade = from != LoadedFrom.MEMORY;
-        startTransitionToBitmap(bitmap);
+        startTransitionToBitmap(bitmap, from != LoadedFrom.MEMORY);
     }
 
     @Override
     public void onBitmapFailed(Drawable errorDrawable) {
-        fade = true;
-        startTransitionToDrawable(errorDrawable);
+        startTransitionToDrawable(errorDrawable, true);
     }
 
     @Override
     public void onPrepareLoad(Drawable placeHolderDrawable) {
-        fade = false;
-        startTransitionToDrawable(placeHolderDrawable);
+        startTransitionToDrawable(placeHolderDrawable, false);
     }
 }
