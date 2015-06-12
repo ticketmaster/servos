@@ -34,19 +34,19 @@
  *
  *           # Project properties - those in your project's gradle.properties file (usually in the root dir of your project repo)
  *           POM_DESCRIPTION=A short description of your Android library
- *           POM_URL=https://github.com/twotoasters/servos
- *           POM_SCM_URL=https://github.com/twotoasters/servos
- *           POM_SCM_CONNECTION=scm:git@github.com:twotoasters/servos.git
- *           POM_SCM_DEV_CONNECTION=scm:git@github.com:twotoasters/servos.git
+ *           POM_URL=https://github.com/ticketmaster/servos
+ *           POM_SCM_URL=https://github.com/ticketmaster/servos
+ *           POM_SCM_CONNECTION=scm:git@github.com:ticketmaster/servos.git
+ *           POM_SCM_DEV_CONNECTION=scm:git@github.com:ticketmaster/servos.git
  *           POM_LICENCE_NAME=The Apache Software License, Version 2.0
  *           POM_LICENCE_URL=http://www.apache.org/licenses/LICENSE-2.0.txt
  *           POM_LICENCE_DIST=repo
  *           POM_DEVELOPER_ID=your_github_id
  *           POM_DEVELOPER_NAME=your_developer_real_name
- *           BINTRAY_PROJECT_NAME=com.twotoasters.servos
+ *           BINTRAY_PROJECT_NAME=com.ticketmaster.servos
  *           BINTRAY_PROJECT_LICENSE=Apache-2.0
- *           BINTRAY_SITE_URL=https://github.com/twotoasters/servos
- *           BINTRAY_GIT_URL=https://github.com/twotoasters/servos.git
+ *           BINTRAY_SITE_URL=https://github.com/ticketmaster/servos
+ *           BINTRAY_GIT_URL=https://github.com/ticketmaster/servos.git
  *
  *           # Module properties - those in your module's gradle.properties file (usually in the your module's dir)
  *           POM_NAME=servos

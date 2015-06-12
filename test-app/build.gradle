@@ -2,9 +2,6 @@ buildscript {
     repositories {
         mavenCentral()
     }
-    dependencies {
-        classpath 'com.github.jcandksolutions.gradle:android-unit-test:2.0.+'
-    }
 }
 
 apply plugin: 'com.android.application'
@@ -46,7 +43,10 @@ android {
     }
 }
 
-apply plugin: 'android-unit-test'
+// Required to resolve conflict between our version and AssertJ's transitive dependency. Try removing and re-compiling test-app in the future.
+configurations.all {
+    resolutionStrategy.force 'com.android.support:support-annotations:22.2.0'
+}
 
 dependencies {
     compile project(':util')

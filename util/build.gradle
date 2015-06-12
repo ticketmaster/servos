@@ -10,10 +10,13 @@ android {
     }
 }
 
+
+
 dependencies {
-    compile 'com.android.support:support-v4:21.0.3'
+    compile 'com.android.support:support-v4:22.2.0'
 }
 
 if (Boolean.parseBoolean(BINTRAY_RELEASE_ENABLED)) {
-    apply from: 'https://raw.githubusercontent.com/twotoasters/servos/master/gradle-scripts/bintray-upload.gradle'
+    apply from: '../gradle-scripts/bintray-upload.gradle'
 }
+
