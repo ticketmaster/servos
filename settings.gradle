@@ -1,1 +1,1 @@
-include ':util', ':util-otto', ':util-picasso', ':util-otto-retrofit', ':util-butterknife', ':test-app'
+include ':util', ':util-otto', ':util-picasso', ':util-otto-retrofit', ':util-butterknife', ':test-app', ':widget'
