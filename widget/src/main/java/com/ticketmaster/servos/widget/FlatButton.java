@@ -54,7 +54,7 @@ public class FlatButton extends AppCompatButton {
         a.recycle();
 
         LayerDrawable ld = new LayerDrawable(new Drawable[] { background, highlight });
-        setBackground(ld);
+        setBackgroundDrawable(ld);
     }
 
 }
