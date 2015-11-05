@@ -29,6 +29,10 @@ A repo for small utilities that we often use in Android development. They are co
 
 - Classes such as bitmap transforms that are dependent upon Picasso
 
+#### widget
+
+- A collection of custom Views and ViewGroups that provide additional functionality over stock Android Views
+
 #### gradle-scripts
 
 - Gradle scripts that can be directly applied in your build.gradle for checkstyle, signing, and uploading to Bintray
@@ -47,7 +51,7 @@ compile 'com.ticketmaster.servos:util-picasso:1.0.0'
 License
 -------
 
-    Copyright 2015 Two Toasters
+    Copyright 2015 Ticketmaster
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
