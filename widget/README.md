@@ -9,6 +9,8 @@ A collection of custom Views and ViewGroups that provide additional functionalit
 
 FlatButton mimics the behavior of a standard Button with the borderless style applied to it, but with a key difference. Rather than forcing a transparent background, it uses `colorButtonNormal` from your theme to color its background, just like any other Button. Ripple is included for Lollipop and above, and anything below gets the normal selection highlight. This can be overridden by specifying `selectableItemBackground` in your theme.
 
+<img src="../readme-images/continue.png" width="480" />
+
 License
 -------
 
