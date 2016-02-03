@@ -41,11 +41,11 @@ Download
 --------
 
 ```groovy
-compile 'com.ticketmaster.servos:util:1.0.0'
-compile 'com.ticketmaster.servos:util-butterknife:1.0.0'
-compile 'com.ticketmaster.servos:util-otto:1.0.0'
-compile 'com.ticketmaster.servos:util-otto-retrofit:1.0.0'
-compile 'com.ticketmaster.servos:util-picasso:1.0.0'
+compile 'com.ticketmaster.servos:util:1.0.1'
+compile 'com.ticketmaster.servos:util-butterknife:1.0.1'
+compile 'com.ticketmaster.servos:util-otto:1.0.1'
+compile 'com.ticketmaster.servos:util-otto-retrofit:1.0.1'
+compile 'com.ticketmaster.servos:util-picasso:1.0.1'
 ```
 
 License
